@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 数据库相关配置 -->
+		<!-- connection.username|connection.password|connection.url|connection.driver_class|dialect -->
+		<!-- 连接数据库账户名称 -->
+		<property name="connection.username">root</property>
+		<!-- 连接数据库密码 -->
+		<property name="connection.password">root</property>
+		<!-- 连接的绝对路径(使用&需要解译&amp;) -->
+		<property name="connection.url">
+			jdbc:mysql://localhost:3306/hibernate?useUnicode=true&amp;characterEncoding=UTF-8&amp;userSSL=false
+		</property>
+		<!-- 配置自动提交事务 -->
+		<property name="hibernate.connection.autocommit">true</property>
+		<!-- 驱动的绝对路径 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- 数据库方言配置 -->
+		<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<!-- 配置本地事务 -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- 调试相关配置 -->
+		<!-- hibernate运行过程是否展示sql命令代码(自动生成) -->
+		<!-- <property name="show_sql">true</property> -->
+		<!-- 是否规范输出sql代码 -->
+		<!-- <property name="format_sql">true</property> -->
+		<!-- 实体映射相关配置 -->
+		<mapping resource="com/qyg/entity/User.hbm.xml"/>
+	
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 实体类映射文件 -->
+<hibernate-mapping>
+	<!--
+		name:实体类全路径名
+		table:实体类对于的数据库表名称
+	 -->
+	<class name="com.qyg.entity.User" table="t_user_hb">
+		<!--
+			id:用于设置数据库表结构中主键列的生成方式
+			name:实体类中属性名称
+			type:Jave的数据类型
+			column:数据库表字段名称
+		 -->
+		<id name="id" type="java.lang.Integer" column="id">
+			<!--
+				class:定义主键列生成的方式:hibernate管理、数据库管理、开发者管理
+				increment,identity,sequcene,native,assgine
+			 -->
+			<generator class="increment"></generator>
+		</id>
+		<!-- 与实体类相匹配 -->
+		<property name="userName" type="java.lang.String" column="user_name"/>
+		<property name="userPwd" type="java.lang.String" column="user_pwd"/>
+		<property name="realName" type="java.lang.String" column="real_name"/>
+		<property name="sex" type="java.lang.String" column="sex"/>
+		<property name="birthday" type="java.util.Date" column="birthday"/>
+		<property name="createdatetime" insert="false" update="false" type="timestamp" column="create_datetime"/>
+		<property name="remark" type="java.lang.String" column="remark"/>
+	</class>
+</hibernate-mapping>
